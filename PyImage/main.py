@@ -22,15 +22,13 @@ if (number == 2):
     Image.fromarray(load_img_rz).save('rPhoto.jpg')
     print("After resizing:", load_img_rz.shape)
 '''
-from tkppinter import *
-import numpy as nppy manage.py runserverpy manage.py runserver
-import random
-from PIL import Image, ImageTk, ImageDraw
+from tkinter import *
+import numpy as np
+from PIL import Image, ImageTk, ImageDraw  # Подключим необходимые библиотеки.
 from tkinter import filedialog
 import os
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
 
 
 def open_img():
@@ -54,11 +52,12 @@ def openfn():
 
 def qwe():
     global x
-    imageO = Image.open(x)
-    draw = ImageDraw.Draw(imageO)
-    width = imageO.size[0]
-    height = imageO.size[1]
-    pix = imageO.load()
+    # mode = int(input('mode:')) #Считываем номер преобразования.
+    imageO = Image.open(x)  # Открываем изображение.
+    draw = ImageDraw.Draw(imageO)  # Создаем инструмент для рисования.
+    width = imageO.size[0]  # Определяем ширину.
+    height = imageO.size[1]  # Определяем высоту.
+    pix = imageO.load()  # Выгружаем значения пикселей.
     pixarr = np.array(imageO)
     xyi = pixarr.shape
     shap = int(np.prod(xyi) / 3)
@@ -129,9 +128,7 @@ def Graf():
     blue225 = (b > 199) & (b < 225)
     blue255 = (b > 224) & (b < 255)
 
-    data_names = ['0-25', '25-50', '50-75', '75-100',
-                  '100-125', '125-150', '150-175', '175-200',
-                  '200-225', '225-255']
+    data_names = [' ']
     data_valuesr = [np.count_nonzero(red25), np.count_nonzero(red50), np.count_nonzero(red75), np.count_nonzero(red100),
                     np.count_nonzero(red125), np.count_nonzero(red150), np.count_nonzero(red175),
                     np.count_nonzero(red200),
@@ -166,9 +163,9 @@ def Graf():
     plt.xticks(xs, data_names)
     fig.autofmt_xdate(rotation=25)
 
-    fig.savefig('pie.png')
+    fig.savefig('Photo.jpg')
 
-    img = Image.open('pie.png')
+    img = Image.open('Photo.jpg')
     img = img.resize((250, 250), Image.ANTIALIAS)
     img = ImageTk.PhotoImage(img)
     panel2 = Label(root, image=img)
@@ -180,13 +177,13 @@ def Graf():
     Kkoe = Label(text='Кіл. однак. елем. ' + str(differ), font="Arial 12")
     Kkoe.grid(row=3, column=1, padx=5, pady=5)
 
-    os.remove('pie.png')
+    os.remove('Photo.jpg')
 
 
 root = Tk()
 root.geometry("560x360+200+50")
 root.resizable(width=True, height=True)
-btn = Button(root, text='Відкрити зобрпження', font="Arial 16", command=open_img)
+btn = Button(root, text='Відкрити зображення', font="Arial 16", command=open_img)
 btn.grid(row=1, column=1, padx=150, pady=100)
 btn2 = Button(root, text='Провести аналіз', command=Graf)
 KLSK = Label(text='Cпіввідношення кольорів', font="Arial 16")
