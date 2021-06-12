@@ -24,7 +24,7 @@ if (number == 2):
 '''
 from tkinter import *
 import numpy as np
-from PIL import Image, ImageTk, ImageDraw  # Подключим необходимые библиотеки.
+from PIL import Image, ImageTk, ImageDraw
 from tkinter import filedialog
 import os
 import matplotlib as mpl
@@ -52,12 +52,12 @@ def openfn():
 
 def qwe():
     global x
-    # mode = int(input('mode:')) #Считываем номер преобразования.
-    imageO = Image.open(x)  # Открываем изображение.
-    draw = ImageDraw.Draw(imageO)  # Создаем инструмент для рисования.
-    width = imageO.size[0]  # Определяем ширину.
-    height = imageO.size[1]  # Определяем высоту.
-    pix = imageO.load()  # Выгружаем значения пикселей.
+    # mode = int(input('mode:'))
+    imageO = Image.open(x)
+    draw = ImageDraw.Draw(imageO)
+    width = imageO.size[0]
+    height = imageO.size[1]
+    pix = imageO.load()
     pixarr = np.array(imageO)
     xyi = pixarr.shape
     shap = int(np.prod(xyi) / 3)
