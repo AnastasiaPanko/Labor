@@ -1,4 +1,6 @@
 import math
+a = input("")
+a = int(a)
 print("Задача 41")
 f = 1
 d = 5
@@ -84,7 +86,9 @@ elif const3 < 0:
     print("Поміняйте значення змінної")
 print("************************************************")
 print("Задача 53")
-a = int(input("a = "))
+#a = int(input("a = "))
+a= input("")
+a = int(a)
 b = int(input("b = "))
 c = int(input("c = "))
 d = int(input("d = "))
